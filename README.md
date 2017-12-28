@@ -1,5 +1,5 @@
 # NEAKSS_VEX
 
-Code for VITZ 2018 with AEB, EM, KX, NB, SBP, SR
+VITZ 2018 with AEB, EM, KX, NB, SBP and SR
 
-Written by Nathan AB
+Code written by Nathan AB
