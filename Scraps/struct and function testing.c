@@ -30,11 +30,11 @@ void goForwards(Robot robot, int lPower, int rPower){
 task main(){
 
 	Robot ROBOT;
-	//ROBOT.Left = Left;
-	//ROBOT.Left2 = Left2;
-	//ROBOT.Right = Right;
-	//ROBOT.Right2 = Right2;
-	//ROBOT.Side = Side;
+	ROBOT.Left = Left;
+	ROBOT.Left2 = Left2;
+	ROBOT.Right = Right;
+	ROBOT.Right2 = Right2;
+	ROBOT.Side = Side;
 
 	while(1==1){
 
