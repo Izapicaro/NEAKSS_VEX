@@ -1,5 +1,5 @@
 # NEAKSS_VEX
 
-Vex In the Zone 2018 with AEB, EM, KX, NB, SBP and SR (also Tim I guess)
+Vex In the Zone 2018 team including Alessandro EB, Ethan M, Kelly X, Nathan B, Sienna BP and Sushrut R
 
-Code written by Nathan AB
+Code written by Nathan B
