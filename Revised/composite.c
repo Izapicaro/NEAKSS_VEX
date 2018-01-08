@@ -70,27 +70,28 @@ task main(){
 		}
 
 		//raise arm
-		if(vexRT[Btn5U]==1){
+		if(vexRT[Btn5UXmtr2]==1){
 			armFunc(ROBOT,127);
 		}
 
 		//lower arm
-		else if(vexRT[Btn5D]==1){
+		else if(vexRT[Btn5DXmtr2]==1){
 			armFunc(ROBOT,-127);
 		}
 
-		//stop arm
+		//switch arm controls to joysticks in case they become out of sync
 		else{
-			endArm(ROBOT);
+			motor[ROBOT.arm1] = vexRT[Ch3Xmtr2];
+			motor[ROBOT.arm2] = vexRT[Ch2Xmtr2];
 		}
 
 		//open claw
-		if(vexRT[Btn6U]==1){
+		if(vexRT[Btn6UXmtr2]==1){
 			clawFunc(ROBOT,127);
 		}
 
 		//close claw
-		else if(vexRT[Btn6D]==1){
+		else if(vexRT[Btn6DXmtr2]==1){
 			clawFunc(ROBOT,-127);
 		}
 
