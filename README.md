@@ -14,7 +14,7 @@ Download ROBOTC for VEX EDR onto a Windows machine (you'll need to set up an acc
 
 \>>>PLEASE DO NOT MODIFY ANY CODE APART FROM "autonomous1.c"<<<
 
-Download "composite.c" to the robot (while it's switched off) when you're ready to test. Ignore any alerts and close any popup windows.If you're having trouble with downloading it to the robot, try updating the firmware, then downloading it again.
+Download "composite.c" to the robot (while it's switched off) when you're ready to test. Ignore any alerts and close any popup windows. If you're having trouble with downloading it to the robot, try updating the firmware, then downloading it again.
 
 Once you've downloaded the program to the robot, uplug it from the computer and connect it to the remote (leave it switched off). Switch on the VEX Cortex and once there are green lights flashing on the remote, press 7U to run autonomous strategy 1, 7D for autonomous strategy 2 and 7R to skip to the remote control. You will need to re-download the code to the robot every time you want to run either autonomous strategy.
 
