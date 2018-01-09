@@ -2,7 +2,7 @@
 
 #include "armLibrary.c"
 
-//functions for autonomous - don't change them.
+//functions for autonomous - don't change them, you inbred.
 
 //closes claw
 void closeClaw(Robot robot, int seconds){
@@ -75,18 +75,24 @@ void turnR(Robot robot, int seconds){
 }
 
 
-//end of functions - I hope you haven't changed anything at this point, you inbred.
-//I swear to god if you change any of them I will try to hang myself using our robot claw, fail because it can't hold anything, then use Team 2's instead
+//end of functions - I swear to god if you've changed any of them I will hang myself using our robot claw, survive because it can't lift anything, then use Team 2's instead.
 
 
 /*
 
->>>WHEN CALLING A FUNCTION, REPLACE "int seconds" with the number of seconds the motors will run<<<
+>>>WHEN CALLING A FUNCTION, REPLACE "int seconds" WITH THE NUMBER OF SECONDS THE MOTORS WILL RUN<<<
 
-These are my autonomous strategies, change them if you can:
+EXAMPLE
 
-Make sure all added functions are placed within auto1 or auto2
-If you want to create the strategies from scratch, comment out the existing contents of auto1 and auto2
+travelForwards(robot, 2);
+=
+robot travels forwards for 2 seconds
+
+
+My autonomous strategies are shown below, change them if you can:
+- Make sure all added functions are placed within auto1 or auto2
+- If you want to create the strategies from scratch, comment out the existing contents of auto1 and auto2
+- Remember the semicolons
 
 */
 
@@ -95,8 +101,7 @@ If you want to create the strategies from scratch, comment out the existing cont
 void auto1(Robot robot){
 
 	//pick up preload
-
-	//closeClaw(robot,1);
+	closeClaw(robot,1);
 	//raise cone
 	raiseArm(robot,3);
 	//move towards stationary goal
