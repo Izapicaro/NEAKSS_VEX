@@ -1,10 +1,10 @@
 #pragma systemFile
 
-//This is a library - don't download this to the robot. Download "composite.c" instead.
-
 #include "armLibrary.c"
 
-//functions for autonomous - don't change them, you inbreds.
+//functions for autonomous
+
+//Don't change anything apart from functions auto1 and auto2. Just don't.
 
 //closes claw
 void closeClaw(Robot robot, int seconds){
@@ -77,7 +77,8 @@ void turnR(Robot robot, int seconds){
 }
 
 
-//end of functions - I swear to god if you've changed any of them I will hang myself using our robot claw, survive because it can't lift anything, then use Team 2's instead.
+//end of functions
+//I swear to god if you've changed any of them I will hang myself using our robot claw, survive because it can't lift anything, then use Team 2's instead.
 
 
 /*
