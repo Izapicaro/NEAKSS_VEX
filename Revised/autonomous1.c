@@ -1,8 +1,10 @@
 #pragma systemFile
 
+//This is a library - don't download this to the robot. Download "composite.c" instead.
+
 #include "armLibrary.c"
 
-//functions for autonomous - don't change them, you inbred.
+//functions for autonomous - don't change them, you inbreds.
 
 //closes claw
 void closeClaw(Robot robot, int seconds){
