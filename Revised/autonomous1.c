@@ -2,7 +2,7 @@
 
 #include "armLibrary.c"
 
-//functions for autonomous
+//functions for autonomous - don't change them.
 
 //closes claw
 void closeClaw(Robot robot, int seconds){
@@ -74,6 +74,21 @@ void turnR(Robot robot, int seconds){
 	halt(robot);
 }
 
+
+//end of functions - I hope you haven't changed anything at this point, you inbred.
+
+/*
+
+>>>WHEN CALLING A FUNCTION, REPLACE "int seconds" with the number of seconds the motors will run<<<
+
+These are my autonomous strategies: change them if you can:
+
+Make sure all added functions are placed within auto1 or auto2
+If you want to create the strategies from scratch, comment out the existing contents of auto1 and auto2
+
+*/
+
+
 //autonomous strategy 1
 void auto1(Robot robot){
 
@@ -89,7 +104,6 @@ void auto1(Robot robot){
 	openClaw(robot,1);
 	//move claw away above goal
 	raiseArm(robot,3);
-
 	//rotate to correct orientation
 	turnL(robot, 3);
 	//move in front of cone
@@ -111,6 +125,7 @@ void auto1(Robot robot){
 
 }
 
+//autonomous strategy 2
 void auto2(Robot robot){
 
 	//pick up preload
