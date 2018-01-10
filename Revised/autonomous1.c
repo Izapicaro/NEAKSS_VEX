@@ -1,144 +1,107 @@
-#pragma systemFile
+#include "autonomous1.c"
 
-#include "armLibrary.c"
+task main(){
 
-//functions for autonomous
+	//changes value after autonomous
+	int autonomous;
+	autonomous = 1;
 
-//closes claw
-void closeClaw(Robot robot, int seconds){
-	clawFunc(robot, -127);
-	wait1Msec(seconds*1000);
-	endClaw(robot);
-}
-
-//opens claw
-void openClaw(Robot robot, int seconds){
-	clawFunc(robot, 127);
-	wait1Msec(seconds*1000);
-	endClaw(robot);
-}
-
-//raises arm
-void raiseArm(Robot robot, int seconds){
-	armFunc(robot, 127);
-	wait1Msec(seconds*1000);
-	endArm(robot);
-}
-
-//lowers arm
-void lowerArm(Robot robot, int seconds){
-	armFunc(robot, -127);
-	wait1Msec(seconds*1000);
-	endArm(robot);
-}
-
-//moves forwards
-void travelForwards(Robot robot, int seconds){
-	goForwards(robot,127,127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//moves backwards
-void travelBackwards(Robot robot, int seconds){
-	goForwards(robot,-127,-127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//moves right
-void travelR(Robot robot, int seconds){
-	goSideways(robot,127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//moves left
-void travelL(Robot robot, int seconds){
-	goSideways(robot,-127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//turns left
-void turnL(Robot robot, int seconds){
-	turn(robot, -127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//turns right
-void turnR(Robot robot, int seconds){
-	turn(robot, -127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
+	//set up
+	Robot ROBOT;
+	ROBOT.left = port4;
+	ROBOT.left2 = port5;
+	ROBOT.right = port1;
+	ROBOT.right2 = port2;
+	ROBOT.side = port3;
+	ROBOT.arm1 = port6;
+	ROBOT.arm2 = port7;
+	ROBOT.claw = port8;
+	ROBOT.claw2 = port9;
 
 
-//autonomous strategy 1
-void auto1(Robot robot){
+	//while the autonomous period is ongoing
+	while(autonomous == 1){
 
-	//pick up preload
-	closeClaw(robot,1);
-	//raise cone
-	raiseArm(robot,3);
-	//move towards stationary goal
-	travelForwards(robot,3);
-	//lower cone onto goal
-	lowerArm(robot,1);
-	//release cone onto goal
-	openClaw(robot,1);
-	//move claw away above goal
-	raiseArm(robot,3);
-	//rotate to correct orientation
-	turnL(robot, 3);
-	//move in front of cone
-	travelL(robot,3);
-	//lower claw to cone
-	lowerArm(robot,3);
-	//pick up cone
-	closeClaw(robot,1);
-	//raise cone
-	raiseArm(robot,3);
-	//travel to position in front of mobile goal
-	travelR(robot,2);
-	//move towards mobile goal
-	travelForwards(robot,1);
-	//lower cone onto goal
-	lowerArm(robot,1);
-	//release cone onto goal
-	openClaw(robot,1);
+		if(vexRT[Btn7U]==1){
+			//runs first autonomous strategy
+			auto1(ROBOT);
+			autonomous = 0;
+		}
+
+		else if(vexRT[Btn7D]==1){
+			//runs second autonomous strategy
+			auto2(ROBOT);
+			autonomous = 0;
+		}
+
+		else if(vexRT[Btn7R]==1){
+			//skips both autonomous strategies
+			autonomous = 0;
+		}
+
+	}
+
+	//once out of the autonomous period
+	while(autonomous == 0){
+
+		//move forwards
+		if(vexRT[Btn8R]==1){
+			goForwards(ROBOT,127,127);
+
+		}
+
+		//move backwards
+		else if(vexRT[Btn8D]==1){
+			goForwards(ROBOT,-127,-127);
+		}
+
+		//move sideways
+		else if(abs(vexRT[Ch4])>0){
+			goSideways(ROBOT,vexRT[Ch4]);
+		}
+
+		//turn
+		else if(abs(vexRT[Ch1])>0){
+			turn(ROBOT,vexRT[Ch1]);
+		}
+
+		//stop
+		else{
+			halt(ROBOT);
+		}
+
+		//raise arm
+		if(vexRT[Btn5UXmtr2]==1){
+			armFunc(ROBOT,127);
+		}
+
+		//lower arm
+		else if(vexRT[Btn5DXmtr2]==1){
+			armFunc(ROBOT,-127);
+		}
+
+		//switch arm controls to joysticks in case they become out of sync
+		else{
+			motor[ROBOT.arm1] = vexRT[Ch3Xmtr2];
+			motor[ROBOT.arm2] = vexRT[-Ch2Xmtr2];
+		}
+
+		//open claw
+		if(vexRT[Btn6UXmtr2]==1){
+			clawFunc(ROBOT,127);
+		}
+
+		//close claw
+		else if(vexRT[Btn6DXmtr2]==1){
+			clawFunc(ROBOT,-127);
+		}
+
+		//stop claw
+		else {
+			endClaw(ROBOT);
+		}
+
+
+	}
 
 }
-
-//autonomous strategy 2
-void auto2(Robot robot){
-
-	//pick up preload
-	closeClaw(robot,1);
-	//raise cone
-	raiseArm(robot,3);
-	//move towards mobile goal
-	travelForwards(robot,5);
-	//lower cone onto goal
-	lowerArm(robot,1);
-	//release cone onto goal
-	openClaw(robot,1);
-	//move in line with match load
-	travelBackwards(robot,2);
-	//turn towards cone
-	turnR(robot, 1);
-	//lower claw to cone
-	lowerArm(robot,3);
-	//pick up cone
-	closeClaw(robot,2);
-	//turn towards mobile goal
-	turnL(robot, 1);
-	//move towards goal
-	travelForwards(robot,2);
-	//lower cone onto goal
-	lowerArm(robot,2);
-	//release cone onto goal
-	openClaw(robot,2);
-}
-
