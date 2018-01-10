@@ -11,7 +11,8 @@ void armFunc(Robot robot, int armPower){
 
 //claw function
 void clawFunc(Robot robot, int clawPower){
-		motor[robot.claw] = clawPower;
+	motor[robot.claw] = clawPower;
+	motor[robot.claw2] = clawPower;
 }
 
 //arm-stopping function
@@ -22,5 +23,5 @@ void endArm(Robot robot){
 
 //claw stopping function
 void endClaw(Robot robot){
-			motor[robot.claw] = 0;
+	motor[robot.claw] = 0;
 }
