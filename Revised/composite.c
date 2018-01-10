@@ -17,6 +17,7 @@ task main(){
 	ROBOT.arm2 = port7;
 	ROBOT.claw = port8;
 	ROBOT.claw2 = port9;
+	ROBOT.clawExtension = port10;
 
 
 	//while the autonomous period is ongoing
@@ -83,7 +84,7 @@ task main(){
 		//switch arm controls to joysticks in case they become out of sync
 		else{
 			motor[ROBOT.arm1] = vexRT[Ch3Xmtr2];
-			motor[ROBOT.arm2] = vexRT[Ch2Xmtr2];
+			motor[ROBOT.arm2] = vexRT[-Ch2Xmtr2];
 		}
 
 		//open claw
@@ -100,8 +101,20 @@ task main(){
 		else {
 			endClaw(ROBOT);
 		}
-
-
+		
+		//extend claw forwards
+		if(vexRT[Btn7UXmtr2]==1){
+			extendClaw(ROBOT,127);
+		}
+		
+		else if(vexRT[Btn7DXmtr2]==1){
+			extendClaw(ROBOT,-127);
+		}
+		
+		else{
+			endExtension(ROBOT);
+		}
+	
 	}
 
 }
