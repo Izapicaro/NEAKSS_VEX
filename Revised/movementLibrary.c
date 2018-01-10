@@ -10,6 +10,8 @@ struct Robot {
 	tMotor arm1;
 	tMotor arm2;
 	tMotor claw;
+	tMotor claw2;
+	tMotor clawExtension;
 };
 
 //overall movement
