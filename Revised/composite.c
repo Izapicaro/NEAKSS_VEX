@@ -16,6 +16,7 @@ task main(){
 	ROBOT.arm1 = port6;
 	ROBOT.arm2 = port7;
 	ROBOT.claw = port8;
+	ROBOT.claw2 = port9;
 
 
 	//while the autonomous period is ongoing
