@@ -4,8 +4,6 @@
 
 //functions for autonomous
 
-//Don't change anything apart from functions auto1 and auto2. Just don't.
-
 //closes claw
 void closeClaw(Robot robot, int seconds){
 	clawFunc(robot, -127);
@@ -75,29 +73,6 @@ void turnR(Robot robot, int seconds){
 	wait1Msec(seconds*1000);
 	halt(robot);
 }
-
-
-//end of functions
-//I swear to god if you've changed any of them I will hang myself using our robot claw, survive because it can't lift anything, then use Team 2's instead.
-
-
-/*
-
->>>WHEN CALLING A FUNCTION, REPLACE "int seconds" WITH THE NUMBER OF SECONDS THE MOTORS WILL RUN<<<
-
-EXAMPLE
-
-travelForwards(robot, 2);
-=
-robot travels forwards for 2 seconds
-
-
-My autonomous strategies are shown below, change them if you can:
-- Make sure all added functions are placed within auto1 or auto2
-- If you want to create the strategies from scratch, comment out the existing contents of auto1 and auto2
-- Remember the semicolons
-
-*/
 
 
 //autonomous strategy 1
