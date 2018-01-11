@@ -12,7 +12,6 @@ task main(){
 	ROBOT.left2 = port5;
 	ROBOT.right = port1;
 	ROBOT.right2 = port2;
-	ROBOT.side = port3;
 	ROBOT.arm1 = port6;
 	ROBOT.arm2 = port7;
 	ROBOT.claw = port8;
@@ -55,11 +54,6 @@ task main(){
 			goForwards(ROBOT,-127,-127);
 		}
 
-		//move sideways
-		else if(abs(vexRT[Ch4])>0){
-			goSideways(ROBOT,vexRT[Ch4]);
-		}
-
 		//turn
 		else if(abs(vexRT[Ch1])>0){
 			turn(ROBOT,vexRT[Ch1]);
@@ -83,7 +77,7 @@ task main(){
 		//switch arm controls to joysticks in case they become out of sync
 		else{
 			motor[ROBOT.arm1] = vexRT[Ch3Xmtr2];
-			motor[ROBOT.arm2] = vexRT[-Ch2Xmtr2];
+			motor[ROBOT.arm2] = -vexRT[Ch2Xmtr2];
 		}
 
 		//open claw
