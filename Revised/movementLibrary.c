@@ -8,6 +8,8 @@ struct Robot {
 	tMotor right2;
 	tMotor arm1;
 	tMotor arm2;
+	tMotor arm3;
+	tMotor arm4;
 	tMotor claw;
 	tMotor claw2;
 };
