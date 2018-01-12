@@ -8,13 +8,15 @@ task main(){
 
 	//set up
 	Robot ROBOT;
-	ROBOT.left = port4;
-	ROBOT.left2 = port5;
+	ROBOT.left = port3;
+	ROBOT.left2 = port4;
 	ROBOT.right = port1;
-	ROBOT.right2 = port2;
-	ROBOT.arm1 = port6;
-	ROBOT.arm2 = port7;
-	ROBOT.claw = port8;
+	ROBOT.right2 = port10;
+	ROBOT.arm1 = port5;
+	ROBOT.arm2 = port2;
+	ROBOT.arm3 = port6;
+	ROBOT.arm4 = port8;
+ 	ROBOT.claw = port7;
 	ROBOT.claw2 = port9;
 
 
@@ -76,8 +78,10 @@ task main(){
 
 		//switch arm controls to joysticks in case they become out of sync
 		else{
-			motor[ROBOT.arm1] = vexRT[Ch3Xmtr2];
-			motor[ROBOT.arm2] = -vexRT[Ch2Xmtr2];
+			motor[ROBOT.arm1] = -vexRT[Ch3Xmtr2];
+			motor[ROBOT.arm2] = -vexRT[Ch3Xmtr2];
+			motor[ROBOT.arm3] = vexRT[Ch2Xmtr2];
+			motor[ROBOT.arm4] = vexRT[Ch2Xmtr2];
 		}
 
 		//open claw
