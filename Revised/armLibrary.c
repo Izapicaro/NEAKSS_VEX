@@ -6,8 +6,8 @@
 //arm function
 void armFunc(Robot robot, int armPower){
 	motor[robot.arm1] = -armPower;
-	motor[robot.arm2] = -armPower;
-	motor[robot.arm3] = armPower;
+	motor[robot.arm2] = armPower;
+	motor[robot.arm3] = -armPower;
 	motor[robot.arm4] = armPower;
 }
 
