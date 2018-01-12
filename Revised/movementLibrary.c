@@ -19,7 +19,7 @@ void go(Robot robot, int lPower, int rPower, int sPower){
 	motor[robot.left] = lPower;
 	motor[robot.left2] = lPower;
 	motor[robot.right] = -rPower;
-	motor[robot.right2] = -rPower;
+	motor[robot.right2] = rPower;
 }
 
 //moving forwards/backwards
