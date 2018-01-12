@@ -1,4 +1,8 @@
-/*NEAKSS VEX ROBOTICS Code
+/*---------------------------------------------------------------------------*/
+/*                                                                           */
+/*        							  NEAKSS VEX ROBOTICS CODE                           */
+/*                                                                           */
+/*---------------------------------------------------------------------------*/
 
 //This code is for the VEX cortex platform
 #pragma platform(VEX2)
@@ -47,19 +51,9 @@ void pre_auton()
 
 task autonomous(){
 	
-	//autonomous has not been triggered
-	int autonomous;
-	autonomous = 0;
+	//run autonomous
+	auto1(ROBOT);
 	
-	//pressing 7U triggers autonomous
-	if(vexRT[Btn7U]==1){
-		autonomous = 1;
-	}
-	
-	if(autonomous==1){
-		//run autonomous code
-		auto1(ROBOT);
-	}
 }
 
 /*---------------------------------------------------------------------------*/
