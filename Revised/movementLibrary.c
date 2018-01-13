@@ -1,5 +1,6 @@
 #pragma systemFile
 
+
 struct Robot {
 	//properties of Robot struct
 	tMotor left;
