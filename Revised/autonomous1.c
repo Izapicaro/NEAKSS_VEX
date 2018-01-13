@@ -64,18 +64,6 @@ void turnR(Robot robot, int seconds){
 void auto1(Robot robot){
 
 	//travel forwards
-	travelForwards(robot,5);
-	//travel backwards
-	travelBackwards(robot,5);
-
-}
-
-//autonomous strategy 2
-void auto2(Robot robot){
-
-	//travel forwards
-	travelForwards(robot,3);
-	//travel backwards
-	travelBackwards(robot,3);
+	travelForwards(robot,2);
 
 }
