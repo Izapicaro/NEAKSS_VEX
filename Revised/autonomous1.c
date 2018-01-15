@@ -6,14 +6,14 @@
 
 //closes claw
 void closeClaw(Robot robot, int seconds){
-	clawFunc(robot, -127);
+	clawFunc(robot, 127);
 	wait1Msec(seconds*1000);
 	endClaw(robot);
 }
 
 //opens claw
 void openClaw(Robot robot, int seconds){
-	clawFunc(robot, 127);
+	clawFunc(robot, -127);
 	wait1Msec(seconds*1000);
 	endClaw(robot);
 }
@@ -55,7 +55,7 @@ void turnL(Robot robot, int seconds){
 
 //turns right
 void turnR(Robot robot, int seconds){
-	turn(robot, -127);
+	turn(robot, 127);
 	wait1Msec(seconds*1000);
 	halt(robot);
 }
@@ -65,5 +65,13 @@ void auto1(Robot robot){
 
 	//travel forwards
 	travelForwards(robot,2);
+	//turn right
+	turnR(robot,1.5);
+	//lower arm
+	lowerArm(robot,2);
+	//open claw
+	openClaw(robot,1);
+	//travel forwards
+	travelForwards(robot,0.2);
 
 }
