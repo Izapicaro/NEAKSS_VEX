@@ -1,6 +1,6 @@
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
-/*                        NEAKSS VEX ROBOTICS CODE                           */
+/*        							  NEAKSS VEX ROBOTICS CODE                           */
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
 
@@ -79,8 +79,8 @@ task usercontrol(){
 			}
 
 			//turn
-			else if(abs(vexRT[Ch1])>0){
-				turn(ROBOT,vexRT[Ch1]);
+			else if(abs(vexRT[Ch4])>0){
+				turn(ROBOT,vexRT[Ch4]);
 			}
 
 			//stop
