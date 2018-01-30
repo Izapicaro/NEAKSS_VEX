@@ -37,9 +37,7 @@ void pre_auton()
 	ROBOT.claw = port5;
 	ROBOT.claw2 = port7;
 
-  bStopTasksBetweenModes = false;
-
-	bDisplayCompetitionStatusOnLcd = false;
+  bStopTasksBetweenModes = true;
 
 }
 
@@ -51,7 +49,6 @@ void pre_auton()
 
 task autonomous(){
 
-	//run autonomous
 	auto1(ROBOT);
 
 }
@@ -106,12 +103,12 @@ task usercontrol(){
 				motor[ROBOT.arm4] = vexRT[Ch2Xmtr2];
 			}
 
-			//open claw
+			//close claw
 			if(vexRT[Btn6UXmtr2]==1){
 				clawFunc(ROBOT,127);
 			}
 
-			//close claw
+			//open claw
 			else if(vexRT[Btn6DXmtr2]==1){
 				clawFunc(ROBOT,-127);
 			}
