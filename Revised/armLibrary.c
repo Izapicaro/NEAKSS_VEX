@@ -14,7 +14,7 @@ void armFunc(Robot robot, int armPower){
 //claw function
 void clawFunc(Robot robot, int clawPower){
 	motor[robot.claw] = clawPower;
-	motor[robot.claw2] = clawPower;
+	motor[robot.claw2] = -clawPower;
 }
 
 //arm-stopping function
