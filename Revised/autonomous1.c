@@ -4,41 +4,6 @@
 
 //functions for autonomous
 
-//closes claw
-void closeClaw(Robot robot, int seconds){
-	clawFunc(robot, 127);
-	wait1Msec(seconds*1000);
-	endClaw(robot);
-}
-
-//opens claw
-void openClaw(Robot robot, int seconds){
-	clawFunc(robot, -127);
-	wait1Msec(seconds*1000);
-	endClaw(robot);
-}
-
-//raises arm
-void raiseArm(Robot robot, int seconds){
-	armFunc(robot, 127);
-	wait1Msec(seconds*1000);
-	endArm(robot);
-}
-
-//lowers arm
-void lowerArm(Robot robot, int seconds){
-	armFunc(robot, -127);
-	wait1Msec(seconds*1000);
-	endArm(robot);
-}
-
-//moves forwards
-void travelForwards(Robot robot, int seconds){
-	goForwards(robot,127,127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
 //moves backwards
 void travelBackwards(Robot robot, int seconds){
 	goForwards(robot,-127,-127);
@@ -46,32 +11,93 @@ void travelBackwards(Robot robot, int seconds){
 	halt(robot);
 }
 
-//turns left
-void turnL(Robot robot, int seconds){
-	turn(robot, -127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
-//turns right
-void turnR(Robot robot, int seconds){
-	turn(robot, 127);
-	wait1Msec(seconds*1000);
-	halt(robot);
-}
-
 //autonomous strategy 1
 void auto1(Robot robot){
 
+	//PART 1
+
+	//close claw
+	clawFunc(robot,127);
+	wait1Msec(2000);
+	endClaw(robot);
+
+	//raise arm
+	clawFunc(robot,127);
+	armFunc(robot, 127);
+	wait1Msec(2000);
+	endArm(robot);
+	endClaw(robot);
+
 	//travel forwards
-	travelForwards(robot,2);
-	//turn right
-	turnR(robot,1.5);
+	clawFunc(robot,127);
+	goForwards(robot,80,80);
+	wait1Msec(1900);
+	halt(robot);
+	endClaw(robot);
+
 	//lower arm
-	lowerArm(robot,2);
+	armFunc(robot, -127);
+	wait1Msec(3000);
+	endArm(robot);
+
 	//open claw
-	openClaw(robot,1);
+	clawFunc(robot, -127);
+	wait1Msec(2000);
+	endClaw(robot);
+
+	//move backwards
+	travelBackwards(robot,1.5);
+	halt(robot);
+
+	//PART 2
+
+	//turn right
+	turn(robot,50);
+	wait1Msec(1500);
+	halt(robot);
+
 	//travel forwards
-	travelForwards(robot,0.2);
+	goForwards(robot,50,50);
+	wait1Msec(500);
+	halt(robot);
+
+	//close claw
+	clawFunc(robot,127);
+	wait1Msec(2000);
+	endClaw(robot);
+
+	//raise arm
+	clawFunc(robot,127);
+	armFunc(robot, 127);
+	wait1Msec(2000);
+	endArm(robot);
+	endClaw(robot);
+
+	//turn left
+	turn(robot,-50);
+	wait1Msec(1000);
+	halt(robot);
+
+	//travel forwards
+	clawFunc(robot,127);
+	goForwards(robot,80,80);
+	wait1Msec(1900);
+	halt(robot);
+	endClaw(robot);
+
+	//lower arm
+	armFunc(robot, -127);
+	wait1Msec(3000);
+	endArm(robot);
+
+	//open claw
+	clawFunc(robot, -127);
+	wait1Msec(2000);
+	endClaw(robot);
+
+	//move backwards
+	travelBackwards(robot,1);
+	halt(robot);
+
 
 }
