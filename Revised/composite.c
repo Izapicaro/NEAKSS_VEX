@@ -37,7 +37,8 @@ void pre_auton()
 	ROBOT.claw = port5;
 	ROBOT.claw2 = port7;
 
-  bStopTasksBetweenModes = true;
+	//part of competition template
+  	bStopTasksBetweenModes = true;
 
 }
 
