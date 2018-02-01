@@ -1,3 +1,5 @@
+//code written for practice robot
+
 #pragma config(Motor,  port1,           Right,         tmotorVex393_HBridge, openLoop)
 #pragma config(Motor,  port2,           Right2,        tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           Side,          tmotorVex393_MC29, openLoop)
