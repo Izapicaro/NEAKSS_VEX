@@ -2,7 +2,7 @@
 
 #include "armLibrary.c"
 
-//functions for autonomous
+//functions for autonomous (most were removed)
 
 //moves backwards
 void travelBackwards(Robot robot, int seconds){
